@@ -193,18 +193,26 @@ doSwap:
         li $t5, 11
 while:
         bge $t0, $t5, finished
+
         #    int temp = myArray[x]; 
-        la $v1, myArray # pointer to first number in array
-        sll $t2, $t0, 2
+        la $v1, myArray # pointer to address of first number in array
+        # shifts for correct array position
+        sll $t2, $t0, 2 
         sll $t3, $t1, 2
+
+        # adding these positions and storing them into registers a0 and a1
         addu $a0, $v1, $t2
         addu $a1, $v1, $t3
+
+        # loading word
         lw $t4, 0($a0)
         lw $t5, 0($a1)
         #    myArray[x] = myArray[y]; 
-        sw $t4, 0($a1)
-        #    myArray[y] = temp; 
+
+        # set word
         sw $t5, 0($a0)
+        #    myArray[y] = temp; 
+        sw $t4, 0($a1)
 
         #    x+=2; 
         addiu $t0, $t0, 2
