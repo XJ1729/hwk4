@@ -185,9 +185,9 @@ doSwap:
         #
         #
         # unsigned int x = 0; 
-        li $t0, 0
+        addiu $t0, $zero, 0
         # unsigned int y = 1; 
-        li $t1, 1
+        addiu $t1, $zero, 1
 
         # while (x < 11) { 
         li $t5, 11
@@ -197,8 +197,8 @@ while:
         la $v1, myArray # pointer to first number in array
         sll $t2, $t0, 2
         sll $t3, $t1, 2
-        add $a0, $v1, $t2
-        add $a1, $v1, $t3
+        addu $a0, $v1, $t2
+        addu $a1, $v1, $t3
         lw $t4, 0($a0)
         lw $t5, 0($a1)
         #    myArray[x] = myArray[y]; 
