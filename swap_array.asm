@@ -190,9 +190,9 @@ doSwap:
         addiu $t1, $zero, 1
 
         # while (x < 11) { 
-        li $t5, 11
+        li $t6, 11
 while:
-        bge $t0, $t5, finished
+        bge $t0, $t6, finished
 
         #    int temp = myArray[x]; 
         la $v1, myArray # pointer to address of first number in array
