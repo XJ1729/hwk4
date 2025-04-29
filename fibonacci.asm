@@ -49,9 +49,19 @@ main:
     ble $a1, $t0, exit
 # otherwise:
     # print "The first " n " numbers in the Fibonacci series are:\n"
+
+    li, $v0, 4
+    la $a0, first
+    syscall
+
+    li $v0, 1
+    move $a0, $a1
+    syscall
+
     li, $v0, 4
     la $a0, numbers
     syscall
+
     # print f1 " " f2
     li, $v0, 1
     move $a0, $t0
